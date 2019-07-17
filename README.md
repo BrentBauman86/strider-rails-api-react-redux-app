@@ -1,0 +1,1 @@
+# strider-rails-api-react-redux-app
