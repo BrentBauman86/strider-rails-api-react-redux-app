@@ -5,17 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-
-const users = () => []
-
-const reducer = combineReducers({
-    users 
-})
-
-const composeEnhancer = window._REDUX_DEVTOOLS_EXTENSIONS_COMPOSE_ || compose;
-
-const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
+import usersReducer from './reducers/users.js'
+import store from './store.js'
 
 ReactDOM.render(
 <Provider store={ store }>
