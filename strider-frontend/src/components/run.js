@@ -3,25 +3,29 @@ import { connect } from 'react-redux'
 import { newRun } from '../actions/newRun.js'
 
 
-const Run = ({name, password, updateLoginForm}) => {
+const Run = ({name, date, distance, comment, newRun}) => {
     const handleInputChange = event => {
         const { name, value } = event.target 
             const updatedFormInfo = {
                 name,
-                password  
+                date,
+                distance,
+                comment   
             }
-            updateLoginForm(updatedFormInfo)
+            newRun(newRun)
 
     }
 
     return(
         <form onSubmit={undefined}>
         <input type='text' value={name} placeholder='name'onChange={handleInputChange} />
-        <input type='text' value={password} placeholder='password' onChange={handleInputChange} /> 
+        <input type='text' value={date} placeholder='date' onChange={handleInputChange} /> 
+        <input type='text' value={distance} placeholder='distance' onChange={handleInputChange} /> 
+        <input type='text' value={comment} placeholder='comment' onChange={handleInputChange} /> 
         <input type='submit' value="Log In" />
         </form>
     )
-// }
+}
 // this gives me an argument coming to this component that looks like this:
 // {
 // name: 'brent'
@@ -29,9 +33,11 @@ const Run = ({name, password, updateLoginForm}) => {
 // }
 const mapStateToProps = state => {
     return {
-        name: state.loginForm.name, 
-        password: state.loginForm.password 
+        name: state.newRun.name, 
+        date: state.newRun.password,
+        distance: state.newRun.distance,
+        comment: state.newRun.comment 
     }
 }
 
-export default connect(mapStateToProps, { updateLoginForm })(Run)
+export default connect(mapStateToProps, { newRun })(Run)
