@@ -108,15 +108,14 @@ class runForm extends Component {
     e.preventDefault();
     let userData = this.state.newRun;
 
-    fetch("http://example.com", {
+    fetch("http://localhost:3001/", {
       method: "POST",
       body: JSON.stringify(userData),
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    }).then(response => {
-      response.json().then(data => {
+    }).then(response => {response.json().then(data => {
         console.log("Successful" + data);
       });
     });
