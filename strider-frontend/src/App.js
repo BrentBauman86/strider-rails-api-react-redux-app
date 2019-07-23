@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Login from './components/Login.js'
+import Run from './components/Run.js'
 
 class App extends React.Component{
   // componentDidMount(){
