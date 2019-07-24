@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get '/login', to: "sessions#create"
+  post '/api/login', to: "api/sessions#create"
 
   namespace :api do 
     resources :users
