@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
 /* Import Components */
-import CheckBox from "../components/CheckBox";
-import Input from "../components/Input";
-import TextArea from "../components/TextArea";
-import Select from "../components/Select";
-import Button from "../components/Button";
+import CheckBox from "../runFormComponents/CheckBox";
+import Input from "../runFormComponents/Input";
+import TextArea from "../runFormComponents/TextArea";
+import Select from "../runFormComponents/Select";
+import Button from "../runFormComponents/Button";
 
 class runForm extends Component {
   constructor(props) {
@@ -66,7 +66,7 @@ class runForm extends Component {
       prevState => ({
         newRun: {
           ...prevState.newRun,
-          [name]: value
+          distance: value
         }
       }),
       () => console.log(this.state.newRun)
@@ -80,7 +80,7 @@ class runForm extends Component {
       prevState => ({
         newRun: {
           ...prevState.newRun,
-          about: value
+          comment: value
         }
       }),
       () => console.log(this.state.newRun)
@@ -153,7 +153,7 @@ class runForm extends Component {
           placeholder={"Enter the date"}
           handleChange={this.handleDate}
         />{" "}
-        {/* Age */}
+        {/* Distance */}
         <Select
           title={"Distance"}
           name={"distance"}
@@ -162,7 +162,7 @@ class runForm extends Component {
           placeholder={"Select distance"}
           handleChange={this.handleInput}
         />{" "}
-        {/* Age Selection */}
+        {/* DIfficulty Selection */}
         <CheckBox
           title={"Difficulty"}
           name={"difficulty"}
@@ -170,7 +170,15 @@ class runForm extends Component {
           selectedOptions={this.state.newRun.difficulty}
           handleChange={this.handleCheckBox}
         />{" "}
-        {/* Skill */}
+        <TextArea
+          title={"Today's Run"}
+          rows={10}
+          value={this.state.newRun.comment}
+          name={"comment"}
+          handleChange={this.handleTextArea}
+          placeholder={"How was your run?"}
+        />
+        {/* Difficulty */}
         <Button
           action={this.handleFormSubmit}
           type={"primary"}
@@ -194,5 +202,5 @@ const buttonStyle = {
   margin: "10px 10px 10px 10px"
 };
 
-export default FormContainer;
+export default runForm;
 

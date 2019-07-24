@@ -1,51 +1,95 @@
-import React from "react";
+// import React from "react";
+// import { connect } from "react-redux"
+// import { login } from "../actions/currentUser.js"
+// import { updateLoginForm } from "../actions/loginForm.js"
 
-class Login extends React.Component {
+// class Login extends React.Component {
 
-    state = {
-      name: "", 
-      password: "",
-    };
+//     state = {
+//       name: "", 
+//       password: "",
+//     };
 
-    handleChange = event => {
-      this.setState({
-        [event.target.name]: event.target.value
-      })
+//     handleChange = event => {
+//       this.setState({
+//         [event.target.name]: event.target.value
+//       })
+//     }
+
+//     handleSubmit = event => {
+//       event.preventDefault()
+//       if (this.state.name && this.state.password) {
+//         this.setState(this.state.value)
+//       }
+//     }
+
+//   render() {
+//     return (
+//       <form onSubmit={event => this.handleSubmit(event)}>
+//         <div>
+//           <label>
+//             Username
+//             <input id="name" name="name" type="text" value={this.state.name} onChange={this.handleChange}/>
+//           </label>
+//         </div>
+//         <div>
+//           <label>
+//             Password
+//             <input id="password" name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
+//           </label>
+//         </div>
+//         <div>
+//           <button type="submit">Log in</button>
+//         </div>
+//       </form>
+//     );
+//   }
+// }
+
+// export default connect(mapStateToProps, { updateLoginForm, login } )(Login)
+
+import React from 'react'
+import { connect } from 'react-redux' 
+import { login } from "../actions/currentUser.js"
+import { updateLoginForm } from '../actions/loginForm.js'
+
+
+const Login = ({ loginFormData, updateLoginForm, login}) => {
+    const handleInputChange = event => {
+        const { name, value } = event.target 
+            const updatedFormInfo = {
+                ...loginFormData,
+                [name]: value
+            }
+            updateLoginForm(updatedFormInfo)
     }
 
-    handleSubmit = event => {
-      event.preventDefault()
-      if (this.state.name && this.state.password) {
-        this.setState(this.state.value)
-      }
-    }
+        const handleSubmit = event => {
+            console.log(login)
+            event.preventDefault()
+            login(loginFormData)
+        }
 
-  render() {
-    return (
-      <form onSubmit={event => this.handleSubmit(event)}>
-        <div>
-          <label>
-            Username
-            <input id="name" name="name" type="text" value={this.state.name} onChange={this.handleChange}/>
-          </label>
-        </div>
-        <div>
-          <label>
-            Password
-            <input id="password" name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
-          </label>
-        </div>
-        <div>
-          <button type="submit">Log in</button>
-        </div>
-      </form>
-    );
-  }
+    return(
+        <form onSubmit={handleSubmit}>
+        <input type='text' value={loginFormData.name} placeholder='name'onChange={handleInputChange} />
+        <input type='text' value={loginFormData.password} placeholder='password' onChange={handleInputChange} /> 
+        <input type='submit' value="Log In" />
+        </form>
+    )
+}
+// this gives me an argument coming to this component that looks like this:
+// {
+// name: 'brent'
+// password: 'xxy352244'
+// }
+const mapStateToProps = state => {
+    return {
+        loginFormData: state.loginForm
+    }
 }
 
-export default Login;
-
-
+export default connect(mapStateToProps, { updateLoginForm })(Login)
 
 
 

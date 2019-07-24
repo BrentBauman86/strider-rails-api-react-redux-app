@@ -1,8 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Login from './components/Login.js'
-import Run from './components/Run.js'
+import Login from './components/Login'
+import runForm from './components/runForm'
+
+const styles = {
+  fontFamily: "sans-serif",
+  textAlign: "center"
+};
 
 class App extends React.Component{
   // componentDidMount(){
@@ -14,6 +19,9 @@ class App extends React.Component{
   return (
     <div>
      <Login />
+     <div className="col-md-6">
+     <runForm />
+     </div>
     </div>
   );
 }
