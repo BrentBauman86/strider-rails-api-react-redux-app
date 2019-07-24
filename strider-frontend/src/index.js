@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import usersReducer from './reducers/users.js'
+
 import store from './store.js'
 
 ReactDOM.render(

@@ -56,11 +56,13 @@ import { updateLoginForm } from '../actions/loginForm.js'
 
 const Login = ({ loginFormData, updateLoginForm, login}) => {
     const handleInputChange = event => {
+        console.log(loginFormData)
         const { name, value } = event.target 
             const updatedFormInfo = {
                 ...loginFormData,
                 [name]: value
             }
+            console.log(name, value)
             updateLoginForm(updatedFormInfo)
     }
 
@@ -72,8 +74,8 @@ const Login = ({ loginFormData, updateLoginForm, login}) => {
 
     return(
         <form onSubmit={handleSubmit}>
-        <input type='text' value={loginFormData.name} placeholder='name'onChange={handleInputChange} />
-        <input type='text' value={loginFormData.password} placeholder='password' onChange={handleInputChange} /> 
+        <input type='text' value={loginFormData.name} name="name" placeholder='name'onChange={handleInputChange} />
+        <input type='text' value={loginFormData.password} name="password" placeholder='password' onChange={handleInputChange} /> 
         <input type='submit' value="Log In" />
         </form>
     )
@@ -85,11 +87,11 @@ const Login = ({ loginFormData, updateLoginForm, login}) => {
 // }
 const mapStateToProps = state => {
     return {
-        loginFormData: state.loginForm
+        loginFormData: state.loginReducer
     }
 }
 
-export default connect(mapStateToProps, { updateLoginForm })(Login)
+export default connect(mapStateToProps, { updateLoginForm, login} )(Login)
 
 
 
