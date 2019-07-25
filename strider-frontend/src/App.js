@@ -12,8 +12,9 @@ const styles = {
 };
 
 class App extends React.Component{
+  
   componentDidMount(){
-     getCurrentUser()
+     this.props.getCurrentUser()
   }
   
   render() {

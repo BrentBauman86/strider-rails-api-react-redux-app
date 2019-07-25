@@ -8,9 +8,9 @@ export const setCurrentUser = user => {
 
 //async action creators 
 export const login = credentials => {
-    console.log(credentials)
     return dispatch => {
        return fetch('http://localhost:3001/api/login', {
+           credentials: "include",
            method: "POST",
            headers: {
                "Content-Type": "application/json"
@@ -19,14 +19,14 @@ export const login = credentials => {
            
        })
        .then(response => response.json())
-       .then(response => dispatch(setCurrentUser(response)))
-       .catch(console.log)
+       .then(userData => dispatch(setCurrentUser(userData)))
     }
 }
 
 export const getCurrentUser = () => {
     return dispatch => {
        return fetch('http://localhost:3001/api/get_current_user', {
+           credentials: "include",
            method: "GET",
            headers: {
                "Content-Type": "application/json"

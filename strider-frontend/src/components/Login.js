@@ -53,7 +53,6 @@ import { connect } from 'react-redux'
 import { login } from "../actions/currentUser.js"
 import { updateLoginForm } from '../actions/loginForm.js'
 
-
 const Login = ({ loginFormData, updateLoginForm, login}) => {
     const handleInputChange = event => {
         console.log(loginFormData)
@@ -80,18 +79,14 @@ const Login = ({ loginFormData, updateLoginForm, login}) => {
         </form>
     )
 }
-// this gives me an argument coming to this component that looks like this:
-// {
-// name: 'brent'
-// password: 'xxy352244'
-// }
+
 const mapStateToProps = state => {
     return {
         loginFormData: state.loginReducer
     }
 }
 
-export default connect(mapStateToProps, { updateLoginForm, login} )(Login)
+export default connect(mapStateToProps, { updateLoginForm, login })(Login)
 
 
 
