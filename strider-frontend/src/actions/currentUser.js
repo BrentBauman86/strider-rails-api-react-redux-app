@@ -9,7 +9,7 @@ export const setCurrentUser = user => {
 //async action creators 
 export const login = credentials => {
     return dispatch => {
-       return fetch('http://localhost:3001/api/login', {
+       return fetch('http://localhost:3000/api/login', {
            credentials: "include",
            method: "POST",
            headers: {

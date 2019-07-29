@@ -18,7 +18,7 @@ class Api::RunsController < ApplicationController
     @run = Run.new(run_params)
 
     if @run.save
-      render json: @run, status: :created, location: @run
+      render json: @run, status: :created
     else
       render json: @run.errors, status: :unprocessable_entity
     end

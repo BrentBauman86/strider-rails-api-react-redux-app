@@ -66,7 +66,6 @@ const Login = ({ loginFormData, updateLoginForm, login}) => {
     }
 
         const handleSubmit = event => {
-            console.log(login)
             event.preventDefault()
             login(loginFormData)
         }
