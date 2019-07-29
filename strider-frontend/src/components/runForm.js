@@ -7,7 +7,7 @@ import TextArea from "../runFormComponents/TextArea";
 import Select from "../runFormComponents/Select";
 import Button from "../runFormComponents/Button";
 
-class runForm extends Component {
+class runForm extends React.Component {
   constructor(props) {
     super(props);
 

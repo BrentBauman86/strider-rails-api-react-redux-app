@@ -7,6 +7,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import usersReducer from './reducers/users.js';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import  runForm  from './components/runForm.js'
 import store from './store.js'
 
 const Home = () => {
@@ -37,9 +38,8 @@ ReactDOM.render(
 <Provider store={ store }>
     <App>
     </App>
-    <Router>
-            <Route path='/home' render={Home} />
-            <Route exact path='/login' render={Login} />
+        <Router>
+            <Route exact path='/home' render={runForm} />
         </Router>
 </Provider>,
 document.getElementById('root'));
