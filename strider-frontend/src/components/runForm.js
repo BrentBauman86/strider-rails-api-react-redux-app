@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
 /* Import Components */
-import CheckBox from "../runFormComponents/CheckBox";
-import Input from "../runFormComponents/Input";
-import TextArea from "../runFormComponents/TextArea";
-import Select from "../runFormComponents/Select";
-import Button from "../runFormComponents/Button";
+import checkBox from "../runFormComponents/checkBox";
+import input from "../runFormComponents/input";
+import textArea from "../runFormComponents/textArea";
+import select from "../runFormComponents/select";
+import button from "../runFormComponents/button";
 
 class runForm extends React.Component {
   constructor(props) {
@@ -136,7 +136,7 @@ class runForm extends React.Component {
   render() {
     return (
       <form className="container-fluid" onSubmit={this.handleFormSubmit}>
-        <Input
+        <input
           inputType={"text"}
           title={"Full Name"}
           name={"name"}
@@ -145,7 +145,7 @@ class runForm extends React.Component {
           handleChange={this.handleInput}
         />{" "}
         {/* Name of the user */}
-        <Input
+        <input
           inputType={"number"}
           name={"Date"}
           title={"Date"}
@@ -154,7 +154,7 @@ class runForm extends React.Component {
           handleChange={this.handleDate}
         />{" "}
         {/* Distance */}
-        <Select
+        <select
           title={"Distance"}
           name={"distance"}
           options={this.state.DistanceOptions}
@@ -163,14 +163,14 @@ class runForm extends React.Component {
           handleChange={this.handleInput}
         />{" "}
         {/* DIfficulty Selection */}
-        <CheckBox
+        <checkBox
           title={"Difficulty"}
           name={"difficulty"}
           options={this.state.difficultyOptions}
           selectedOptions={this.state.newRun.difficulty}
           handleChange={this.handleCheckBox}
         />{" "}
-        <TextArea
+        <textArea
           title={"Today's Run"}
           rows={10}
           value={this.state.newRun.comment}
@@ -179,14 +179,14 @@ class runForm extends React.Component {
           placeholder={"How was your run?"}
         />
         {/* Difficulty */}
-        <Button
+        <button
           action={this.handleFormSubmit}
           type={"primary"}
           title={"Submit"}
           style={buttonStyle}
         />{" "}
         {/*Submit */}
-        <Button
+        <button
           action={this.handleClearForm}
           type={"secondary"}
           title={"Clear"}
