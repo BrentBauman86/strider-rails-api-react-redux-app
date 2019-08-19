@@ -25,7 +25,11 @@ export const login = credentials => {
 
 export const getCurrentUser = () => {
     return dispatch => {
+<<<<<<< HEAD
        return fetch('http://0.0.0.0:3000/api/get_current_user', {
+=======
+       return fetch('http://localhost:3000/api/get_current_user', {
+>>>>>>> 0e0b7fbd6f20129a671a54650b3538214f29796e
            credentials: "include",
            method: "GET",
            headers: {
